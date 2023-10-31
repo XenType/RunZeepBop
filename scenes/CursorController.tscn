@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3i8rx4mhfdiu"]
+
+[ext_resource type="Script" path="res://scripts/CursorController.gd" id="1_dynsr"]
+[ext_resource type="PackedScene" uid="uid://objchnna3dtd" path="res://scenes/StarPrize.tscn" id="2_or101"]
+[ext_resource type="Script" path="res://scripts/FiniteStateMachine.gd" id="3_fmlk2"]
+[ext_resource type="Script" path="res://scripts/CursorNormalState.gd" id="4_twglt"]
+[ext_resource type="Script" path="res://scripts/CursorPrizeState.gd" id="5_ke0lu"]
+
+[node name="CursorController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dynsr")
+prize_scene = ExtResource("2_or101")
+
+[node name="CursorStateMachine" type="Node" parent="."]
+script = ExtResource("3_fmlk2")
+
+[node name="CursorNormalState" type="Node" parent="CursorStateMachine"]
+script = ExtResource("4_twglt")
+
+[node name="CursorPrizeState" type="Node" parent="CursorStateMachine"]
+script = ExtResource("5_ke0lu")
+
+[connection signal="state_has_changed" from="CursorStateMachine" to="." method="update_cursor_icon"]

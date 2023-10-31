@@ -1,0 +1,71 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8w2a2b8cvoq1"]
+
+[ext_resource type="Texture2D" uid="uid://dfpc83fj6qn13" path="res://sprites/laser/laser1.png" id="1_86pae"]
+[ext_resource type="Script" path="res://scripts/LaserBeam.gd" id="1_mg8bh"]
+[ext_resource type="Texture2D" uid="uid://fjs84h6hqis5" path="res://sprites/laser/laser2.png" id="2_52oyn"]
+[ext_resource type="Texture2D" uid="uid://cvdr4batkyrh0" path="res://sprites/laser/laser3.png" id="3_dc83n"]
+[ext_resource type="Texture2D" uid="uid://cdeke0d0v6jim" path="res://sprites/laser/laser4.png" id="4_c5kjy"]
+[ext_resource type="Texture2D" uid="uid://cjdec3e3s3ij5" path="res://sprites/laser/laser5.png" id="5_y3m3b"]
+[ext_resource type="Texture2D" uid="uid://oc4ctwfchr7l" path="res://sprites/laser/laser6.png" id="6_ubu01"]
+[ext_resource type="Texture2D" uid="uid://pxvyebtrdimr" path="res://sprites/laser/laser7.png" id="7_kmnc0"]
+[ext_resource type="Texture2D" uid="uid://b4c6smcltqe8e" path="res://sprites/laser/laser8.png" id="8_8tqw6"]
+[ext_resource type="Texture2D" uid="uid://jpwe25wn0hxh" path="res://sprites/laser/laser9.png" id="9_t42qo"]
+[ext_resource type="Texture2D" uid="uid://dfbx4grp23x8w" path="res://sprites/laser/laser10.png" id="10_7nykk"]
+[ext_resource type="Texture2D" uid="uid://b3cn18qcm8puq" path="res://sprites/laser/laser11.png" id="11_j6kw3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ulbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_86pae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_52oyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dc83n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c5kjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y3m3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ubu01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kmnc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8tqw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t42qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7nykk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j6kw3")
+}],
+"loop": true,
+"name": &"blast",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdga"]
+size = Vector2(50, 6)
+
+[node name="LaserBeam" type="Area2D"]
+script = ExtResource("1_mg8bh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0ulbd")
+animation = &"blast"
+autoplay = "blast"
+frame = 2
+frame_progress = 0.232908
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ycdga")

@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1wp510fphllw"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_45qfl"]
+[ext_resource type="Texture2D" uid="uid://duqpre88od087" path="res://sprites/monster/head/eye-center.png" id="1_yfdke"]
+[ext_resource type="Texture2D" uid="uid://cb5mya4t7l078" path="res://sprites/monster/body/open.png" id="2_6ugps"]
+[ext_resource type="Texture2D" uid="uid://dc0y8ge1kbsv0" path="res://sprites/monster/head/eye-left.png" id="2_i7eso"]
+[ext_resource type="Texture2D" uid="uid://d1awf53fvamxv" path="res://sprites/monster/head/eye-right.png" id="3_gycc3"]
+[ext_resource type="Texture2D" uid="uid://demb1wgyp7dpf" path="res://sprites/monster/body/half.png" id="3_ymor0"]
+[ext_resource type="Texture2D" uid="uid://d35xexmmj8qjr" path="res://sprites/monster/body/closed.png" id="4_dvf6n"]
+[ext_resource type="Script" path="res://scripts/FiniteStateMachine.gd" id="8_0bamf"]
+[ext_resource type="Script" path="res://scripts/MonsterIdleState.gd" id="9_qh0rr"]
+[ext_resource type="Script" path="res://scripts/MonsterChaseState.gd" id="10_c4lvh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2q6ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ymor0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6ugps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ymor0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6ugps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ymor0")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_6ugps")
+}],
+"loop": true,
+"name": &"chase",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6ugps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ymor0")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_dvf6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ymor0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6ugps")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4umb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 15.0,
+"texture": ExtResource("2_i7eso")
+}],
+"loop": true,
+"name": &"chase_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 15.0,
+"texture": ExtResource("3_gycc3")
+}],
+"loop": true,
+"name": &"chase_right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_i7eso")
+}, {
+"duration": 4.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 12.0,
+"texture": ExtResource("2_i7eso")
+}, {
+"duration": 8.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 4.0,
+"texture": ExtResource("3_gycc3")
+}, {
+"duration": 8.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 4.0,
+"texture": ExtResource("2_i7eso")
+}, {
+"duration": 6.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_gycc3")
+}, {
+"duration": 6.0,
+"texture": ExtResource("1_yfdke")
+}, {
+"duration": 10.0,
+"texture": ExtResource("3_gycc3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_db46d"]
+radius = 16.0
+height = 46.0
+
+[node name="Monster" type="Area2D"]
+script = ExtResource("1_45qfl")
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2q6ag")
+animation = &"idle"
+
+[node name="HeadSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m4umb")
+animation = &"idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_db46d")
+
+[node name="PointOfView" type="RayCast2D" parent="."]
+position = Vector2(1, -12)
+collide_with_areas = true
+
+[node name="SightStateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("8_0bamf")
+state = NodePath("MonsterIdleState")
+
+[node name="MonsterIdleState" type="Node" parent="SightStateMachine" node_paths=PackedStringArray("actor", "point_of_view")]
+script = ExtResource("9_qh0rr")
+actor = NodePath("../..")
+point_of_view = NodePath("../../PointOfView")
+
+[node name="MonsterChaseState" type="Node" parent="SightStateMachine" node_paths=PackedStringArray("actor", "point_of_view")]
+script = ExtResource("10_c4lvh")
+actor = NodePath("../..")
+point_of_view = NodePath("../../PointOfView")

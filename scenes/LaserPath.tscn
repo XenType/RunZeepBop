@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://u2ltpob00cne"]
+
+[ext_resource type="PackedScene" uid="uid://3eoemflvp1h7" path="res://scenes/PointSampler.tscn" id="1_hmqcj"]
+
+[sub_resource type="Curve2D" id="Curve2D_evjdl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 505, 49, 0, 0, 0, 0, 1045, 49)
+}
+point_count = 2
+
+[node name="LaserPath" type="Path2D"]
+curve = SubResource("Curve2D_evjdl")
+
+[node name="PointSampler" parent="." instance=ExtResource("1_hmqcj")]
