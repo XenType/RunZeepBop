@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://balfc7h6w65xi"]
+[gd_scene load_steps=16 format=3 uid="uid://balfc7h6w65xi"]
 
 [ext_resource type="Script" path="res://scripts/ZeepBop.gd" id="1_a1bt7"]
 [ext_resource type="Texture2D" uid="uid://bmyut0ejjbjmp" path="res://sprites/creature/Creature1.png" id="1_k5uc4"]
@@ -6,8 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cnvtr5myqdgte" path="res://sprites/creature/Creature3.png" id="3_8k8i3"]
 [ext_resource type="Texture2D" uid="uid://ckxa6h6x5dh8g" path="res://sprites/creature/Creature4.png" id="4_e51dq"]
 [ext_resource type="Script" path="res://scripts/FiniteStateMachine.gd" id="6_am4i0"]
+[ext_resource type="Texture2D" uid="uid://dj028pg5fj032" path="res://sprites/creature/Creature_idle_1.png" id="6_tnpmc"]
 [ext_resource type="Script" path="res://scripts/ZeepBopChaseState.gd" id="7_f5cjo"]
+[ext_resource type="Texture2D" uid="uid://dbvhqckstee2s" path="res://sprites/creature/Creature_idle_2.png" id="7_omte5"]
+[ext_resource type="Texture2D" uid="uid://c7jhse27fn8h0" path="res://sprites/creature/Creature_idle_3.png" id="8_6l6vo"]
 [ext_resource type="Script" path="res://scripts/ZeepBopIdleState.gd" id="8_oguvh"]
+[ext_resource type="PackedScene" uid="uid://b1fqhibmfh47b" path="res://scenes/TerrainDetector.tscn" id="9_23p04"]
+[ext_resource type="Texture2D" uid="uid://bnco5t74fc6y5" path="res://sprites/creature/Creature_idle_4.png" id="9_mh1i3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vfy14"]
 animations = [{
@@ -34,29 +39,55 @@ animations = [{
 "texture": ExtResource("1_k5uc4")
 }],
 "loop": true,
-"name": &"Bouncing",
+"name": &"chase",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("6_tnpmc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_omte5")
+}, {
+"duration": 6.0,
+"texture": ExtResource("6_tnpmc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_6l6vo")
+}, {
+"duration": 10.0,
+"texture": ExtResource("6_tnpmc")
+}, {
+"duration": 5.0,
+"texture": ExtResource("9_mh1i3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_156ij"]
 radius = 12.0
 height = 34.0
 
-[node name="ZeepBop" type="CharacterBody2D"]
+[node name="ZeepBop" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 128
 script = ExtResource("1_a1bt7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vfy14")
-animation = &"Bouncing"
-autoplay = "Bouncing"
-frame_progress = 0.960737
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.237204
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_156ij")
 
 [node name="PointOfView" type="RayCast2D" parent="."]
-position = Vector2(0, -12)
+collision_mask = 4
+collide_with_areas = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
 script = ExtResource("6_am4i0")
@@ -71,3 +102,15 @@ point_of_view = NodePath("../../PointOfView")
 script = ExtResource("8_oguvh")
 actor = NodePath("../..")
 point_of_view = NodePath("../../PointOfView")
+
+[node name="TerrainDetector" parent="." node_paths=PackedStringArray("collision_source") instance=ExtResource("9_23p04")]
+collision_source = NodePath("../Collision")
+
+[node name="PrizePointOfView" type="RayCast2D" parent="."]
+collision_mask = 3
+collide_with_areas = true
+
+[connection signal="state_has_changed" from="StateMachine" to="." method="_on_state_machine_state_has_changed"]
+[connection signal="pit_collision" from="TerrainDetector" to="." method="_on_terrain_detector_pit_collision"]
+[connection signal="prize_collision" from="TerrainDetector" to="." method="_on_terrain_detector_prize_collision"]
+[connection signal="ramp_collision" from="TerrainDetector" to="." method="_on_terrain_detector_ramp_collision"]

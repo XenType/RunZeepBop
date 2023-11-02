@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://beggu35k6u7dm"]
+
+[ext_resource type="PackedScene" uid="uid://balfc7h6w65xi" path="res://scenes/ZeepBop.tscn" id="1_2wvha"]
+[ext_resource type="Script" path="res://scripts/Finish.gd" id="1_j2q8v"]
+[ext_resource type="Script" path="res://scripts/LevelPrize.gd" id="2_k02lj"]
+[ext_resource type="Texture2D" uid="uid://drtv4tjx5sjvb" path="res://sprites/creature-ship.png" id="3_lne15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ak077"]
+
+[node name="Finish" type="Node2D"]
+script = ExtResource("1_j2q8v")
+
+[node name="Outline" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1250.0
+offset_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Outline"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -333.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0.423529, 0.109804, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Outline"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -289.0
+offset_top = -188.0
+offset_right = 305.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 100
+text = "YOU WIN!!!!"
+
+[node name="Button" type="Button" parent="Outline"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -119.0
+offset_right = -20.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
+
+[node name="LevelPrize" type="Area2D" parent="."]
+position = Vector2(800, 350)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_k02lj")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelPrize"]
+position = Vector2(50, -50)
+texture = ExtResource("3_lne15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelPrize"]
+shape = SubResource("CircleShape2D_ak077")
+
+[node name="ZeepBop" parent="." node_paths=PackedStringArray("level_prize") instance=ExtResource("1_2wvha")]
+position = Vector2(-35, 358)
+level_prize = NodePath("../LevelPrize")
+
+[connection signal="pressed" from="Outline/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dshmyylj7bplq"]
+
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_f8vej"]
+[ext_resource type="PackedScene" uid="uid://crdackp4ydes" path="res://scenes/UserInterface.tscn" id="2_cpgia"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_f8vej")
+
+[node name="UserInterface" parent="." instance=ExtResource("2_cpgia")]
+z_index = 10
+
+[connection signal="load_next_level" from="UserInterface" to="." method="next_level"]
+[connection signal="load_start" from="UserInterface" to="." method="show_start"]
+[connection signal="reload_level" from="UserInterface" to="." method="_reload_level"]

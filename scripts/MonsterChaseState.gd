@@ -11,17 +11,10 @@ signal lost_zeep_bop
 func _ready() -> void:
 	set_physics_process(false)
 	
-func _enter_state() -> void:
-	set_physics_process(true)
-
-	is_on_left = actor.zeep_bop.position.x < 0
-	is_above = actor.zeep_bop.position.y > 0
-	
-	
-func _exit_state() -> void:
-	set_physics_process(false)
-	
 func _physics_process(delta):
+	var local_position = actor.to_local(actor.zeep_bop.position)
+	is_on_left = local_position.x < 0 # STOPPED HERE
+	is_above = local_position.y > 0
 	if (point_of_view.is_colliding()):
 		lost_zeep_bop.emit()
 

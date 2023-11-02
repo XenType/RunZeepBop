@@ -1,0 +1,402 @@
+[gd_scene load_steps=28 format=3 uid="uid://cei4dx046yvkl"]
+
+[ext_resource type="PackedScene" uid="uid://5n2llqvrjxv6" path="res://scenes/TileMap.tscn" id="1_8dhye"]
+[ext_resource type="Script" path="res://scripts/Level_3.gd" id="1_f4jks"]
+[ext_resource type="PackedScene" uid="uid://balfc7h6w65xi" path="res://scenes/ZeepBop.tscn" id="2_6fxio"]
+[ext_resource type="PackedScene" uid="uid://objchnna3dtd" path="res://scenes/StarPrize.tscn" id="3_d03t2"]
+[ext_resource type="PackedScene" uid="uid://b3i8rx4mhfdiu" path="res://scenes/CursorController.tscn" id="4_eaw6r"]
+[ext_resource type="PackedScene" uid="uid://3eoemflvp1h7" path="res://scenes/PointSampler.tscn" id="5_k56b7"]
+[ext_resource type="PackedScene" uid="uid://b8w2a2b8cvoq1" path="res://scenes/LaserBeam.tscn" id="6_g1gly"]
+[ext_resource type="PackedScene" uid="uid://c1wp510fphllw" path="res://scenes/Monster.tscn" id="7_4v0j3"]
+
+[sub_resource type="Curve2D" id="Curve2D_wkln1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 215, 45, 0, 0, 0, 0, 585, 45)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fgpj2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 815, 45, 0, 0, 0, 0, 1135, 45)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vint1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 905, 365, 0, 0, 0, 0, 905, 435)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_h4x6s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1005, 365, 0, 0, 0, 0, 1005, 435)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_e2cnu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1105, 365, 0, 0, 0, 0, 1105, 435)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_t8v3f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1015, 505, 0, 0, 0, 0, 1135, 505)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_esmby"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 785, 505, 0, 0, 0, 0, 985, 505)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ys1eo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 615, 505, 0, 0, 0, 0, 735, 505)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jf8fx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 515, 655, 0, 0, 0, 0, 735, 655)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_58u5f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 765, 655, 0, 0, 0, 0, 985, 655)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jtt5j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 675, 75, 0, 0, 0, 0, 675, 225)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_c3t62"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 175, 75, 0, 0, 0, 0, 175, 175)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jl8ky"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 925, 125, 0, 0, 0, 0, 925, 325)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_w8gii"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1025, 125, 0, 0, 0, 0, 1025, 325)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_j3dl0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1125, 125, 0, 0, 0, 0, 1125, 325)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_gy7qx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 325, 375, 0, 0, 0, 0, 325, 625)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_msujo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 275, 375, 0, 0, 0, 0, 275, 625)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cu51y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 225, 375, 0, 0, 0, 0, 225, 625)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_aqduu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 175, 375, 0, 0, 0, 0, 175, 625)
+}
+point_count = 2
+
+[node name="Level_3" type="Node2D"]
+script = ExtResource("1_f4jks")
+
+[node name="TileMap" parent="." instance=ExtResource("1_8dhye")]
+layer_0/tile_data = PackedInt32Array(0, 196608, 1, 65536, 196608, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 1, 327680, 196608, 1, 393216, 196608, 1, 458752, 196608, 1, 524288, 196608, 1, 589824, 196608, 1, 655360, 196608, 1, 720896, 196608, 1, 786432, 196608, 1, 851968, 196608, 1, 851969, 196608, 1, 851970, 196608, 1, 851971, 196608, 1, 851972, 196608, 1, 851973, 196608, 1, 851974, 196608, 1, 851975, 196608, 1, 851976, 196608, 1, 851977, 196608, 1, 851978, 196608, 1, 851979, 196608, 1, 851980, 196608, 1, 851981, 196608, 1, 851982, 196608, 1, 851983, 196608, 1, 851984, 196608, 1, 851985, 196608, 1, 851986, 196608, 1, 851987, 196608, 1, 851988, 196608, 1, 851989, 196608, 1, 851990, 196608, 1, 851991, 196608, 1, 851992, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3, 196608, 1, 4, 196608, 1, 5, 196608, 1, 6, 196608, 1, 7, 196608, 1, 8, 196608, 1, 9, 196608, 1, 10, 196608, 1, 11, 196608, 1, 13, 196608, 1, 14, 196608, 1, 15, 196608, 1, 16, 196608, 1, 17, 196608, 1, 18, 196608, 1, 19, 196608, 1, 20, 196608, 1, 21, 196608, 1, 22, 196608, 1, 23, 196608, 1, 24, 196608, 1, 65560, 196608, 1, 131096, 196608, 1, 196632, 196608, 1, 262168, 196608, 1, 327704, 196608, 1, 393240, 196608, 1, 458776, 196608, 1, 524312, 196608, 1, 589848, 196608, 1, 655384, 196608, 1, 720920, 196608, 1, 786456, 196608, 1, 12, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 131085, 65536, 0, 196621, 65536, 0, 262157, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 131084, 196608, 1, 131086, 196608, 1, 131087, 196608, 1, 196620, 196608, 1, 262156, 196608, 1, 196622, 196608, 1, 262158, 196608, 1, 327694, 196608, 1, 393229, 196608, 1, 393230, 196608, 1, 393228, 196608, 1, 327692, 65536, 0, 327693, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 65544, 65536, 0, 131083, 65536, 0, 196619, 65536, 0, 196617, 65536, 0, 196618, 65536, 0, 131081, 65536, 0, 65543, 65536, 0, 65541, 0, 1, 65542, 65536, 0, 65540, 65536, 0, 196611, 65536, 0, 65539, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 131074, 196608, 1, 196610, 196608, 1, 262146, 196608, 1, 131076, 196608, 1, 131077, 196608, 1, 131078, 196608, 1, 131079, 196608, 1, 131080, 196608, 1, 196612, 65536, 0, 196613, 65536, 0, 196614, 65536, 0, 196615, 65536, 0, 196616, 65536, 0, 131075, 65536, 0, 262147, 196608, 1, 262148, 196608, 1, 262149, 196608, 1, 262150, 196608, 1, 262151, 196608, 1, 262152, 196608, 1, 262153, 196608, 1, 262154, 196608, 1, 262155, 196608, 1, 131082, 196608, 1, 327681, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327682, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327687, 0, 1, 393217, 196608, 1, 393218, 196608, 1, 393219, 196608, 1, 393220, 196608, 1, 393221, 196608, 1, 393222, 196608, 1, 393223, 196608, 1, 393224, 196608, 1, 393225, 196608, 1, 393226, 196608, 1, 393227, 196608, 1, 65552, 65536, 0, 131088, 65536, 0, 196626, 65536, 0, 131090, 65536, 0, 196628, 65536, 0, 196630, 65536, 0, 131092, 65536, 0, 131094, 65536, 0, 262162, 65536, 0, 327698, 65536, 0, 393234, 65536, 0, 262164, 65536, 0, 327700, 65536, 0, 393236, 65536, 0, 262166, 65536, 0, 327702, 65536, 0, 393238, 65536, 0, 131095, 65536, 0, 196624, 65536, 0, 262160, 65536, 0, 327696, 65536, 0, 393232, 65536, 0, 393233, 65536, 0, 393235, 65536, 0, 393237, 65536, 0, 393239, 65536, 0, 458775, 65536, 0, 524311, 65536, 0, 589847, 65536, 0, 196623, 196608, 1, 262159, 196608, 1, 327695, 196608, 1, 393231, 196608, 1, 65559, 196608, 1, 262161, 196608, 1, 327697, 196608, 1, 262163, 196608, 1, 327699, 196608, 1, 262165, 196608, 1, 327701, 196608, 1, 196631, 196608, 1, 262167, 196608, 1, 327703, 196608, 1, 131089, 196608, 1, 131091, 196608, 1, 131093, 196608, 1, 196625, 65536, 0, 196627, 65536, 0, 196629, 65536, 0, 65553, 65536, 0, 65554, 65536, 0, 65555, 65536, 0, 65556, 65536, 0, 65557, 65536, 0, 65558, 65536, 0, 458767, 196608, 1, 458768, 196608, 1, 458770, 196608, 1, 458772, 196608, 1, 458774, 196608, 1, 524310, 196608, 1, 589846, 65536, 0, 589845, 65536, 0, 524309, 65536, 0, 589844, 65536, 0, 589843, 65536, 0, 524307, 65536, 0, 589842, 65536, 0, 589841, 65536, 0, 524305, 65536, 0, 589840, 65536, 0, 589839, 65536, 0, 524303, 65536, 0, 589838, 65536, 0, 589837, 65536, 0, 524301, 65536, 0, 589836, 65536, 0, 589835, 65536, 0, 589834, 65536, 0, 589833, 0, 1, 589832, 65536, 0, 524296, 65536, 0, 458760, 65536, 0, 458759, 65536, 0, 524308, 196608, 1, 524306, 196608, 1, 524304, 196608, 1, 524302, 196608, 1, 458766, 196608, 1, 458761, 196608, 1, 458762, 196608, 1, 458763, 196608, 1, 458764, 196608, 1, 458765, 196608, 1, 524297, 196608, 1, 524298, 196608, 1, 524299, 196608, 1, 524300, 196608, 1, 655367, 196608, 1, 655368, 196608, 1, 655369, 196608, 1, 655370, 196608, 1, 655371, 196608, 1, 655372, 196608, 1, 655373, 196608, 1, 655374, 196608, 1, 655375, 196608, 1, 655376, 196608, 1, 655377, 196608, 1, 655378, 196608, 1, 655379, 196608, 1, 655380, 196608, 1, 655381, 196608, 1, 655382, 196608, 1, 655383, 196608, 1, 524295, 196608, 1, 589831, 196608, 1, 458769, 65536, 0, 458771, 65536, 0, 458773, 65536, 0, 458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 524289, 65536, 0, 589825, 65536, 0, 655361, 65536, 0, 720897, 65536, 0, 786433, 65536, 0, 786434, 65536, 0, 786435, 65536, 0, 786436, 65536, 0, 786437, 65536, 0, 786438, 65536, 0, 786439, 65536, 0, 589826, 196608, 1, 655362, 196608, 1, 524290, 0, 1, 720898, 0, 1, 524291, 65536, 0, 589827, 65536, 0, 655363, 65536, 0, 720899, 65536, 0, 524292, 65536, 0, 589828, 65536, 0, 655364, 65536, 0, 720900, 65536, 0, 524293, 65536, 0, 589829, 65536, 0, 655365, 65536, 0, 720901, 65536, 0, 524294, 65536, 0, 589830, 65536, 0, 655366, 65536, 0, 720902, 65536, 0, 786440, 65536, 0, 786441, 65536, 0, 786442, 65536, 0, 786443, 0, 1, 786444, 65536, 0, 720908, 65536, 0, 786445, 65536, 0, 786446, 65536, 0, 786447, 65536, 0, 786449, 65536, 0, 720913, 65536, 0, 786450, 65536, 0, 786451, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 786454, 65536, 0, 786455, 65536, 0, 720919, 65536, 0, 720914, 196608, 1, 720915, 196608, 1, 720916, 196608, 1, 720917, 196608, 1, 720918, 196608, 1, 720909, 196608, 1, 720910, 196608, 1, 720911, 196608, 1, 720912, 196608, 1, 720903, 196608, 1, 720904, 196608, 1, 720905, 196608, 1, 720906, 196608, 1, 720907, 196608, 1, 786448, 0, 1)
+layer_1/tile_data = PackedInt32Array(65542, 65537, 2, 4, 196609, 0, 5, 196609, 0, 6, 196609, 0, 7, 196609, 0, 8, 196609, 0, 9, 196609, 0, 10, 196609, 0, 11, 196609, 0, 327686, 196609, 1, 327688, 65537, 2, 16, 196609, 0, 17, 196609, 0, 18, 196609, 0, 19, 196609, 0, 20, 196609, 0, 21, 196609, 0, 22, 196609, 0, 655373, 65537, 1, 655372, 65537, 1, 655374, 65537, 1, 655376, 65537, 1, 655377, 65537, 1, 655378, 65537, 1, 655380, 65537, 1, 655381, 65537, 1, 655382, 65537, 1, 458774, 1, 1, 524310, 1, 1, 458772, 1, 1, 524308, 1, 1, 458770, 1, 1, 524306, 1, 1, 589834, 65537, 2, 786447, 196609, 1, 786442, 196609, 1, 851978, 65537, 1, 851979, 65537, 1, 851980, 65537, 1, 851981, 65537, 1, 851982, 65537, 1, 851983, 65537, 1, 851984, 65537, 1, 851985, 65537, 1, 851986, 65537, 1, 851987, 65537, 1, 655375, 65537, 1, 655379, 65537, 1, 65540, 196609, 1)
+layer_2/tile_data = PackedInt32Array(720919, 196609, 2, 12, 131073, 2)
+layer_3/tile_data = PackedInt32Array(65549, 65537, 0, 131085, 65537, 0, 196621, 65537, 0, 262157, 65537, 0, 65539, 65537, 0, 131075, 65537, 0, 196611, 65537, 0, 131090, 65537, 0, 196626, 65537, 0, 262162, 65537, 0, 327698, 65537, 0, 393234, 65537, 0, 131092, 65537, 0, 196628, 65537, 0, 262164, 65537, 0, 327700, 65537, 0, 393236, 65537, 0, 131094, 65537, 0, 196630, 65537, 0, 262166, 65537, 0, 327702, 65537, 0, 393238, 65537, 0, 458755, 65537, 0, 524291, 65537, 0, 589827, 65537, 0, 655363, 65537, 0, 720899, 65537, 0, 786435, 65537, 0, 458756, 65537, 0, 524292, 65537, 0, 589828, 65537, 0, 655364, 65537, 0, 720900, 65537, 0, 786436, 65537, 0, 458757, 65537, 0, 524293, 65537, 0, 589829, 65537, 0, 655365, 65537, 0, 720901, 65537, 0, 786437, 65537, 0, 458758, 65537, 0, 524294, 65537, 0, 589830, 65537, 0, 655366, 65537, 0, 720902, 65537, 0, 786438, 65537, 0)
+
+[node name="ZeepBop" parent="." node_paths=PackedStringArray("level_prize", "cursor_controller") instance=ExtResource("2_6fxio")]
+position = Vector2(625, 25)
+level_prize = NodePath("../StarPrize")
+cursor_controller = NodePath("../CursorController")
+
+[node name="StarPrize" parent="." instance=ExtResource("3_d03t2")]
+position = Vector2(1175, 575)
+
+[node name="CursorController" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("4_eaw6r")]
+tile_map = NodePath("../TileMap")
+
+[node name="LaserPath1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_wkln1")
+
+[node name="PointSampler" parent="LaserPath1" instance=ExtResource("5_k56b7")]
+position = Vector2(215, 45)
+
+[node name="LaserBeam" parent="LaserPath1" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(215, 74)
+rotation = 1.5708
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fgpj2")
+
+[node name="PointSampler" parent="LaserPath2" instance=ExtResource("5_k56b7")]
+position = Vector2(815, 45)
+
+[node name="LaserBeam" parent="LaserPath2" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(815, 74)
+rotation = 1.5708
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vint1")
+
+[node name="PointSampler" parent="LaserPath3" instance=ExtResource("5_k56b7")]
+position = Vector2(905, 365)
+rotation = 1.5708
+path_speed = 0.5
+
+[node name="LaserBeam" parent="LaserPath3" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(876, 365)
+rotation = 3.14159
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_h4x6s")
+
+[node name="PointSampler" parent="LaserPath4" instance=ExtResource("5_k56b7")]
+position = Vector2(1005, 365)
+rotation = 1.5708
+path_speed = 0.5
+
+[node name="LaserBeam" parent="LaserPath4" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(976, 365)
+rotation = 3.14159
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_e2cnu")
+
+[node name="PointSampler" parent="LaserPath5" instance=ExtResource("5_k56b7")]
+position = Vector2(1105, 365)
+rotation = 1.5708
+path_speed = 0.5
+
+[node name="LaserBeam" parent="LaserPath5" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(1076, 365)
+rotation = 3.14159
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath6" type="Path2D" parent="."]
+curve = SubResource("Curve2D_t8v3f")
+
+[node name="PointSampler" parent="LaserPath6" instance=ExtResource("5_k56b7")]
+position = Vector2(1015, 505)
+
+[node name="LaserBeam" parent="LaserPath6" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(1015, 476)
+rotation = 4.71239
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath7" type="Path2D" parent="."]
+curve = SubResource("Curve2D_esmby")
+
+[node name="PointSampler" parent="LaserPath7" instance=ExtResource("5_k56b7")]
+position = Vector2(785, 505)
+
+[node name="LaserBeam" parent="LaserPath7" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(785, 476)
+rotation = 4.71239
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath8" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ys1eo")
+
+[node name="PointSampler" parent="LaserPath8" instance=ExtResource("5_k56b7")]
+position = Vector2(615, 505)
+
+[node name="LaserBeam" parent="LaserPath8" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(615, 476)
+rotation = 4.71239
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath9" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jf8fx")
+
+[node name="PointSampler" parent="LaserPath9" instance=ExtResource("5_k56b7")]
+position = Vector2(515, 655)
+
+[node name="LaserBeam" parent="LaserPath9" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(515, 626)
+rotation = 4.71239
+point_sampler = NodePath("../PointSampler")
+
+[node name="LaserPath10" type="Path2D" parent="."]
+curve = SubResource("Curve2D_58u5f")
+
+[node name="PointSampler" parent="LaserPath10" instance=ExtResource("5_k56b7")]
+position = Vector2(765, 655)
+
+[node name="LaserBeam" parent="LaserPath10" node_paths=PackedStringArray("point_sampler") instance=ExtResource("6_g1gly")]
+position = Vector2(765, 626)
+rotation = 4.71239
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jtt5j")
+
+[node name="PointSampler" parent="MonsterPath1" instance=ExtResource("5_k56b7")]
+position = Vector2(675, 75)
+rotation = 1.5708
+
+[node name="Monster" parent="MonsterPath1" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(675, 75)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_c3t62")
+
+[node name="PointSampler" parent="MonsterPath2" instance=ExtResource("5_k56b7")]
+position = Vector2(175, 75)
+rotation = 1.5708
+path_speed = 1.0
+
+[node name="Monster" parent="MonsterPath2" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(175, 75)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jl8ky")
+
+[node name="PointSampler" parent="MonsterPath3" instance=ExtResource("5_k56b7")]
+position = Vector2(925, 325)
+rotation = 1.5708
+progress = 200.0
+
+[node name="Monster" parent="MonsterPath3" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(925, 325)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_w8gii")
+
+[node name="PointSampler" parent="MonsterPath4" instance=ExtResource("5_k56b7")]
+position = Vector2(1025, 325)
+rotation = 1.5708
+progress = 200.0
+
+[node name="Monster" parent="MonsterPath4" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(1025, 325)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j3dl0")
+
+[node name="PointSampler" parent="MonsterPath5" instance=ExtResource("5_k56b7")]
+position = Vector2(1125, 325)
+rotation = 1.5708
+progress = 200.0
+
+[node name="Monster" parent="MonsterPath5" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(1125, 325)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath6" type="Path2D" parent="."]
+curve = SubResource("Curve2D_gy7qx")
+
+[node name="PointSampler" parent="MonsterPath6" instance=ExtResource("5_k56b7")]
+position = Vector2(325, 625)
+rotation = 1.5708
+progress = 250.0
+path_speed = 3.0
+
+[node name="Monster" parent="MonsterPath6" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(325, 625)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath7" type="Path2D" parent="."]
+curve = SubResource("Curve2D_msujo")
+
+[node name="PointSampler" parent="MonsterPath7" instance=ExtResource("5_k56b7")]
+position = Vector2(275, 625)
+rotation = 1.5708
+progress = 250.0
+path_speed = 3.0
+
+[node name="Monster" parent="MonsterPath7" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(275, 625)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath8" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cu51y")
+
+[node name="PointSampler" parent="MonsterPath8" instance=ExtResource("5_k56b7")]
+position = Vector2(225, 625)
+rotation = 1.5708
+progress = 250.0
+path_speed = 3.0
+
+[node name="Monster" parent="MonsterPath8" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(225, 625)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="MonsterPath9" type="Path2D" parent="."]
+curve = SubResource("Curve2D_aqduu")
+
+[node name="PointSampler" parent="MonsterPath9" instance=ExtResource("5_k56b7")]
+position = Vector2(175, 625)
+rotation = 1.5708
+progress = 250.0
+path_speed = 3.0
+
+[node name="Monster" parent="MonsterPath9" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("7_4v0j3")]
+position = Vector2(175, 625)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[connection signal="fell_in_pit" from="ZeepBop" to="." method="_on_zeep_bop_fell_in_pit"]
+[connection signal="reached_prize" from="ZeepBop" to="." method="_on_zeep_bop_reached_prize"]
+[connection signal="killed_zeep_bop" from="LaserPath1/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath2/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath3/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath4/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath5/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath6/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath7/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath8/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath9/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="LaserPath10/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath1/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath2/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath3/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath4/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath5/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath6/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath7/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath8/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="MonsterPath9/Monster" to="." method="_on_monster_killed_zeep_bop"]

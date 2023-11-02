@@ -1,5 +1,7 @@
 extends Area2D
 
+signal killed_zeep_bop
+
 @export var point_sampler: PointSampler = null
 
 func _ready():
@@ -11,3 +13,8 @@ func _physics_process(delta):
 		position.y = point_sampler.position.y
 	else:
 		position.x = point_sampler.position.x
+
+
+func _on_body_entered(body):
+	if (body.is_in_group("Player")):
+		killed_zeep_bop.emit()

@@ -10,7 +10,7 @@ func _ready():
 
 func change_state(newState: State):
 	if state is State:
-		state._exist_state()
+		state._exit_state()
 	if newState is State:
 		newState._enter_state()
 		state = newState

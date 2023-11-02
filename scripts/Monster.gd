@@ -19,11 +19,8 @@ func _ready():
 	point_sampler.is_active = false
 	point_sampler.is_looping_on = false
 
-	
 func _physics_process(delta):
-	
-	$PointOfView.target_position = zeep_bop.position
-	
+	$PointOfView.target_position = to_local(zeep_bop.position)
 	if state_machine.state is MonsterChaseState:
 		point_sampler.is_active = true
 		point_sampler.is_increasing_progress = true if ((point_sampler.is_verticle_path && chase_state.is_above) || (not point_sampler.is_verticle_path && not chase_state.is_on_left)) else false
@@ -47,7 +44,8 @@ func chase_zeep_bop():
 		position.y = point_sampler.position.y
 	else:
 		position.x = point_sampler.position.x
-	
-	
 
-	
+func _on_body_entered(body):
+	print("body entered ")
+	if body.is_in_group("Player"):
+		killed_zeep_bop.emit()

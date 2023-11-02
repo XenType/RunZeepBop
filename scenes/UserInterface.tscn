@@ -1,0 +1,150 @@
+[gd_scene load_steps=5 format=3 uid="uid://crdackp4ydes"]
+
+[ext_resource type="Script" path="res://scripts/UserInterface.gd" id="1_wbdw6"]
+[ext_resource type="Texture2D" uid="uid://bmyut0ejjbjmp" path="res://sprites/creature/Creature1.png" id="1_ych7w"]
+[ext_resource type="Script" path="res://scripts/FiniteStateMachine.gd" id="3_fsee7"]
+[ext_resource type="Script" path="res://scripts/State.gd" id="4_p75la"]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbdw6")
+
+[node name="ShadeOut" type="ColorRect" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.419608, 0.25098, 0.945098, 0.678431)
+
+[node name="Lives" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1104.0
+offset_top = 4.0
+offset_right = 1247.0
+offset_bottom = 46.0
+
+[node name="ColorRect" type="ColorRect" parent="Lives"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 1.0
+offset_right = -6.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.329412, 0.329412, 0.329412, 0.956863)
+
+[node name="Life1" type="Sprite2D" parent="Lives"]
+position = Vector2(49, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ych7w")
+
+[node name="Life2" type="Sprite2D" parent="Lives"]
+position = Vector2(83, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ych7w")
+
+[node name="Life3" type="Sprite2D" parent="Lives"]
+position = Vector2(117, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ych7w")
+
+[node name="ButtonBacker" type="ColorRect" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -58.0
+offset_right = 127.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="TryAgain" type="Button" parent="."]
+process_mode = 3
+z_index = 20
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -64.0
+offset_right = 130.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Try Again
+"
+
+[node name="GameOver" type="Button" parent="."]
+process_mode = 3
+z_index = 20
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -64.0
+offset_right = 132.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Game Over
+"
+
+[node name="NextLevel" type="Button" parent="."]
+process_mode = 3
+z_index = 20
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -62.0
+offset_right = 131.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+
+[node name="GameState" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("3_fsee7")
+state = NodePath("GameStateActive")
+
+[node name="GameStateActive" type="Node" parent="GameState"]
+script = ExtResource("4_p75la")
+
+[node name="GameStateTryAgain" type="Node" parent="GameState"]
+script = ExtResource("4_p75la")
+
+[node name="GameStateGameOver" type="Node" parent="GameState"]
+script = ExtResource("4_p75la")
+
+[connection signal="pressed" from="TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="GameOver" to="." method="_on_game_over_pressed"]
+[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="state_has_changed" from="GameState" to="." method="_on_game_state_state_has_changed"]

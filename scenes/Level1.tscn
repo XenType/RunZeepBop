@@ -1,8 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://dfk2g7vniv65e"]
+[gd_scene load_steps=14 format=3 uid="uid://bvqhleow3xmbe"]
 
-[ext_resource type="Script" path="res://scripts/Level1.gd" id="1_1djek"]
-[ext_resource type="Texture2D" uid="uid://dcsiuatjd1ye6" path="res://tiles/BaseAtlas.png" id="2_ihphr"]
-[ext_resource type="Texture2D" uid="uid://bl67tc8vl2atx" path="res://tiles/TrapAtlas2.png" id="3_ve76o"]
 [ext_resource type="PackedScene" uid="uid://b8w2a2b8cvoq1" path="res://scenes/LaserBeam.tscn" id="4_l8wtn"]
 [ext_resource type="PackedScene" uid="uid://3eoemflvp1h7" path="res://scenes/PointSampler.tscn" id="4_unr6v"]
 [ext_resource type="PackedScene" uid="uid://c1wp510fphllw" path="res://scenes/Monster.tscn" id="6_b7lre"]
@@ -10,107 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://objchnna3dtd" path="res://scenes/StarPrize.tscn" id="8_icru8"]
 [ext_resource type="PackedScene" uid="uid://b3i8rx4mhfdiu" path="res://scenes/CursorController.tscn" id="9_rdus8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbwbr"]
-resource_name = "BaseTiles"
-texture = ExtResource("2_ihphr")
-margins = Vector2i(5, 5)
-separation = Vector2i(10, 10)
-texture_region_size = Vector2i(50, 50)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, -25, 25, 25, 25, 25, -25, 25, -25)
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, -25, 25, 25, 25, 25, -25, 25, -25)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, -25, 25, 25, 25, 25, -25, 25, -25)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0 = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgqsk"]
-resource_name = "TrapTiles"
-texture = ExtResource("3_ve76o")
-margins = Vector2i(10, 10)
-separation = Vector2i(5, 5)
-texture_region_size = Vector2i(50, 50)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/custom_data_0 = true
-3:2/0 = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0/custom_data_1 = true
-
 [sub_resource type="TileSet" id="TileSet_crjbu"]
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_mask = 128
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 128
+physics_layer_2/collision_layer = 32
+physics_layer_2/collision_mask = 128
 custom_data_layer_0/name = "isStart"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "isFinish"
 custom_data_layer_1/type = 1
-sources/0 = SubResource("TileSetAtlasSource_fbwbr")
-sources/1 = SubResource("TileSetAtlasSource_hgqsk")
+custom_data_layer_2/name = "isRamp"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "isPit"
+custom_data_layer_3/type = 1
 
 [sub_resource type="Curve2D" id="Curve2D_olv0n"]
 _data = {
@@ -149,7 +61,6 @@ _data = {
 point_count = 2
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_1djek")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_crjbu")
@@ -248,13 +159,14 @@ position = Vector2(1075, 325)
 zeep_bop = NodePath("../../ZeepBop")
 point_sampler = NodePath("../PointSampler")
 
-[node name="ZeepBop" parent="." instance=ExtResource("7_uoe5b")]
+[node name="ZeepBop" parent="." node_paths=PackedStringArray("level_prize", "cursor_controller") instance=ExtResource("7_uoe5b")]
+z_index = 1
 position = Vector2(25, 325)
+level_prize = NodePath("../StarPrize")
+cursor_controller = NodePath("../CursorController")
 
 [node name="StarPrize" parent="." instance=ExtResource("8_icru8")]
 position = Vector2(625, 275)
 
-[node name="CursorController" parent="." instance=ExtResource("9_rdus8")]
-
-[connection signal="mouse_down" from="CursorController" to="." method="_on_cursor_controller_mouse_down"]
-[connection signal="mouse_up" from="CursorController" to="." method="_on_cursor_controller_mouse_up"]
+[node name="CursorController" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("9_rdus8")]
+tile_map = NodePath("../TileMap")

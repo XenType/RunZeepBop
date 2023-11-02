@@ -5,3 +5,6 @@ extends Area2D
 
 func remove_from_map():
 	queue_free()
+
+func disable_collision(should_disable: bool) -> void:
+	$Collision.disabled = should_disable

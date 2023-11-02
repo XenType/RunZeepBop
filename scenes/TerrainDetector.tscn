@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1fqhibmfh47b"]
+
+[ext_resource type="Script" path="res://scripts/TerrainDetector.gd" id="1_257jp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1sc2g"]
+radius = 16.0
+height = 32.0
+
+[node name="TerrainDetector" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_257jp")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1sc2g")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

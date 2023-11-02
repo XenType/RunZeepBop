@@ -7,6 +7,8 @@
 size = Vector2(43, 44)
 
 [node name="StarPrize" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_fdtiy")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

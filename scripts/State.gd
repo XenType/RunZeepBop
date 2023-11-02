@@ -4,7 +4,7 @@ extends Node
 signal state_finished
 
 func _enter_state() -> void:
-	pass
+	set_physics_process(true)
 	
-func _exist_state() -> void:
-	pass
+func _exit_state() -> void:
+	set_physics_process(false)

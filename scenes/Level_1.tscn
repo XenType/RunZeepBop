@@ -1,0 +1,143 @@
+[gd_scene load_steps=15 format=3 uid="uid://b60n8er2k7xqr"]
+
+[ext_resource type="Script" path="res://scripts/Level_1.gd" id="1_83236"]
+[ext_resource type="PackedScene" uid="uid://5n2llqvrjxv6" path="res://scenes/TileMap.tscn" id="2_fgbbm"]
+[ext_resource type="PackedScene" uid="uid://3eoemflvp1h7" path="res://scenes/PointSampler.tscn" id="4_ftkvj"]
+[ext_resource type="PackedScene" uid="uid://b8w2a2b8cvoq1" path="res://scenes/LaserBeam.tscn" id="5_47aut"]
+[ext_resource type="PackedScene" uid="uid://c1wp510fphllw" path="res://scenes/Monster.tscn" id="6_np0nq"]
+[ext_resource type="PackedScene" uid="uid://balfc7h6w65xi" path="res://scenes/ZeepBop.tscn" id="7_m7cb2"]
+[ext_resource type="PackedScene" uid="uid://objchnna3dtd" path="res://scenes/StarPrize.tscn" id="8_2cbp7"]
+[ext_resource type="PackedScene" uid="uid://b3i8rx4mhfdiu" path="res://scenes/CursorController.tscn" id="9_uf7oi"]
+
+[sub_resource type="Curve2D" id="Curve2D_or0ct"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 505, 49, 0, 0, 0, 0, 1045, 49)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_j2yua"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 301, 205, 0, 0, 0, 0, 301, 495)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_am73w"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 855, 499, 0, 0, 0, 0, 995, 499)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_wwc0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 425, 425, 0, 0, 0, 0, 525, 425)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ft41s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 675, 325, 0, 0, 0, 0, 775, 325)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_nwnk6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1075, 225, 0, 0, 0, 0, 1075, 325)
+}
+point_count = 2
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_83236")
+
+[node name="TileMap" parent="." instance=ExtResource("2_fgbbm")]
+
+[node name="Laser1Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_or0ct")
+
+[node name="PointSampler" parent="Laser1Path" instance=ExtResource("4_ftkvj")]
+
+[node name="LaserBeam" parent="Laser1Path" node_paths=PackedStringArray("point_sampler") instance=ExtResource("5_47aut")]
+position = Vector2(505, 74)
+rotation = 1.5708
+point_sampler = NodePath("../PointSampler")
+
+[node name="Laser2Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j2yua")
+
+[node name="PointSampler" parent="Laser2Path" instance=ExtResource("4_ftkvj")]
+position = Vector2(301, 205)
+rotation = 1.5708
+
+[node name="LaserBeam" parent="Laser2Path" node_paths=PackedStringArray("point_sampler") instance=ExtResource("5_47aut")]
+position = Vector2(275, 205)
+rotation = 3.14159
+point_sampler = NodePath("../PointSampler")
+
+[node name="Laser3Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_am73w")
+
+[node name="PointSampler" parent="Laser3Path" instance=ExtResource("4_ftkvj")]
+position = Vector2(855, 499)
+
+[node name="LaserBeam" parent="Laser3Path" node_paths=PackedStringArray("point_sampler") instance=ExtResource("5_47aut")]
+position = Vector2(855, 525)
+rotation = 1.5708
+point_sampler = NodePath("../PointSampler")
+
+[node name="Monster1Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_wwc0c")
+
+[node name="PointSampler" parent="Monster1Path" instance=ExtResource("4_ftkvj")]
+position = Vector2(525, 425)
+progress = 100.0
+
+[node name="Monster" parent="Monster1Path" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("6_np0nq")]
+position = Vector2(525, 425)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="Monster2Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ft41s")
+
+[node name="PointSampler" parent="Monster2Path" instance=ExtResource("4_ftkvj")]
+position = Vector2(675, 325)
+
+[node name="Monster" parent="Monster2Path" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("6_np0nq")]
+position = Vector2(675, 325)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="Monster3Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nwnk6")
+
+[node name="PointSampler" parent="Monster3Path" instance=ExtResource("4_ftkvj")]
+position = Vector2(1075, 325)
+rotation = 1.5708
+progress = 100.0
+
+[node name="Monster" parent="Monster3Path" node_paths=PackedStringArray("zeep_bop", "point_sampler") instance=ExtResource("6_np0nq")]
+position = Vector2(1075, 325)
+zeep_bop = NodePath("../../ZeepBop")
+point_sampler = NodePath("../PointSampler")
+
+[node name="ZeepBop" parent="." node_paths=PackedStringArray("level_prize", "cursor_controller") instance=ExtResource("7_m7cb2")]
+z_index = 1
+position = Vector2(25, 325)
+level_prize = NodePath("../StarPrize")
+cursor_controller = NodePath("../CursorController")
+
+[node name="StarPrize" parent="." instance=ExtResource("8_2cbp7")]
+position = Vector2(625, 275)
+
+[node name="CursorController" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("9_uf7oi")]
+tile_map = NodePath("../TileMap")
+
+[connection signal="killed_zeep_bop" from="Laser1Path/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="Laser2Path/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="Laser3Path/LaserBeam" to="." method="_on_laser_beam_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="Monster1Path/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="Monster2Path/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="killed_zeep_bop" from="Monster3Path/Monster" to="." method="_on_monster_killed_zeep_bop"]
+[connection signal="fell_in_pit" from="ZeepBop" to="." method="_on_zeep_bop_fell_in_pit"]
+[connection signal="reached_prize" from="ZeepBop" to="." method="_on_zeep_bop_reached_prize"]
+[connection signal="mouse_down" from="CursorController" to="." method="_on_cursor_controller_mouse_down"]
+[connection signal="mouse_up" from="CursorController" to="." method="_on_cursor_controller_mouse_up"]

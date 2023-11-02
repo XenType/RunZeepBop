@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbovrg5xgmav"]
+
+[ext_resource type="Script" path="res://scripts/Start.gd" id="1_n6f77"]
+
+[node name="Start" type="Node"]
+script = ExtResource("1_n6f77")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.654902, 0.615686, 0.776471, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -392.0
+offset_top = 111.0
+offset_right = 392.0
+offset_bottom = 258.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.298039, 0.0117647, 0.501961, 1)
+theme_override_font_sizes/normal_font_size = 100
+text = "Run Zeep Bop!!!!"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.5
+offset_top = -236.0
+offset_right = 84.5
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Start Game"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
